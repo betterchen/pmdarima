@@ -312,7 +312,7 @@ def plot_pacf(series, ax=None, lags=None, alpha=None, method='yw',
     return _show_or_return(res, show)
 
 
-def tsdisplay(y, lag_max=50, figsize=(8, 6), title=None, bins=25,
+def tsdisplay(y, lag_max=50, figsize=(8, 6), dpi=100, title=None, bins=25,
               series_kwargs=None, acf_kwargs=None, hist_kwargs=None,
               show=True):
     """Display the time series and some of its key statistics
@@ -330,6 +330,9 @@ def tsdisplay(y, lag_max=50, figsize=(8, 6), title=None, bins=25,
 
     figsize : tuple, optional (default=(8, 6))
         The size of the figure
+
+    dpi : int, optional (default=100)
+        The DPI of the figure
 
     title : str, optional (default=None)
         A title for the series, if any.
@@ -366,7 +369,7 @@ def tsdisplay(y, lag_max=50, figsize=(8, 6), title=None, bins=25,
     _err_for_no_mpl()
     from matplotlib import gridspec
 
-    fig = mpl.figure(figsize=figsize)
+    fig = mpl.figure(figsize=figsize, dpi=dpi)
     gs = gridspec.GridSpec(4, 2)
     ax0 = fig.add_subplot(gs[0:2, 0:])
     ax1 = fig.add_subplot(gs[2:, 0])
